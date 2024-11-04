@@ -1,0 +1,265 @@
+{% extends 'gabarit.html' %}
+
+
+{% block title %} home {% endblock %}
+
+
+
+
+{% load static %}
+{% block content %} 
+
+
+
+
+<link rel="stylesheet"  href=" {% static 'mouad.css' %} ">
+
+<link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+
+
+
+<header>
+  
+    <!-- NAV  -->
+    <div class="nav container" style="position: fixed; top: 20px; left: 1350px;">
+        
+        <i class='bx bx-shopping-bag' id="cart-icon" style=" font-size: 40px; color: aliceblue; position: sticky;" ></i>
+
+        <!-- CART  -->
+        <div class="cart">
+            <h2 class="cart-title">Your Cart</h2>
+
+            <!-- CONTENT  -->
+            <div class="cart-content" name="name">
+              {{prd.name}}
+
+
+            </div>
+
+            <!-- TOTAL   -->
+            <div class="total">
+                <div class="total-title">Total</div>
+                <div  class="total-price" name="">{{prd.price}}</div>
+            </div>
+            <!-- BUY BUTTON  -->
+            <input id="s" type="submit" class="btn-buy" value="ORDER NOW">
+            <!-- CART CLOSE  -->
+            <i class='bx bx-x' id="cart-close"></i>
+        </div>
+    </div>
+ 
+</header>
+
+
+
+<section class="shop container">
+  
+    <h2 class="section-title">Ordre Your FOOD</h2>
+    
+
+     
+          
+
+
+     
+    
+
+    <!-- CONTENT  -->
+    <div class="shop-content">
+        <!-- BOX 1 -->
+        {% for prd in data %}
+        <div class="product-box">
+            <a href=" {% url 'detail' prd.name %}" > <button type="button" class="btn btn-primary" style="position: absolute;">Click here for more information</button></a>
+             <a href=" {% url 'detail' prd.name %}" ><img src="{{prd.image.url}}" alt="" class="product-img"> </a>
+            <h2 class="product-title">{{prd.name}}</h2>
+            <span class="product-price">{{prd.price}}</span>
+             <i class='bx bx-shopping-bag add-cart'></i>
+        </div>
+        {% endfor %}
+      
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css">
+
+<div id="ahmed" class="wrapper">
+  <div class="payment">
+    <div class="payment-logo">
+      <p>p</p>
+    </div>
+    
+    <button id="closeButton" class="close-button">&times;</button>
+    
+    <h2>Payment Gateway</h2>
+    <div class="form">
+      <div class="card space icon-relative" style="border: none;">
+        <label class="label">Name:</label>
+        <input type="text" class="input" id="name" placeholder="Entre your name">
+        <i class="fas fa-user"></i>
+      </div>
+      <div class="card space icon-relative" style="border: none; ">
+        <label class="label">Adresse:</label>
+        <input type="text" class="input" id="address" placeholder="Address">
+        <i class="fas fa-user"></i>
+      </div>
+      <div class="card space icon-relative" style="border: none; ">
+        <label class="label">Card Number:</label>
+        <input type="text" class="input" id="cardNumber" data-mask="0000 0000 0000 0000" placeholder="Card Number">
+        <i class="far fa-credit-card"></i>
+      </div>
+      
+      <div class="card-grp space">
+        <div class="card-item icon-relative">
+          <label class="label">Expiry Date:</label>
+          <input type="text" name="expiry-data" class="input" id="expiryDate" placeholder="MM / YY">
+          <i class="far fa-calendar-alt"></i>
+        </div>
+        <div class="card-item icon-relative">
+          <label class="label">CVC:</label>
+          <input type="text" class="input" id="cvc" data-mask="000" placeholder="000">
+          <i class="fas fa-lock"></i>
+        </div>
+      </div>
+        
+      <div class="btn" id="payButton">
+        Pay
+      </div> 
+      <div class="message" id="paymentMessage">Payment message goes here</div>
+      
+    </div>
+  </div>
+</div>
+
+<script>
+  // Fonction de validation du formulaire
+  function validateForm() {
+    const name = document.getElementById('name').value.trim();
+    const address = document.getElementById('address').value.trim();
+    const cardNumber = document.getElementById('cardNumber').value.trim();
+    const expiryDate = document.getElementById('expiryDate').value.trim();
+    const cvc = document.getElementById('cvc').value.trim();
+
+    if (!name) {
+      alert('Veuillez entrer votre nom.');
+      return false;
+    }
+
+    if (!address) {
+      alert('Veuillez entrer votre adresse.');
+      return false;
+    }
+
+    const cardNumberRegex = /^\d{16}$/;
+    if (!cardNumberRegex.test(cardNumber.replace(/\s+/g, ''))) {
+      alert('Veuillez entrer un numéro de carte valide (16 chiffres).');
+      return false;
+    }
+
+    const expiryDateRegex = /^([[0-9]{2})\/?([0-9]{2})$/;
+    if (!expiryDateRegex.test(expiryDate)) {
+      alert('Veuillez entrer une date d\'expiration valide (MM/YY).');
+      return false;
+    }
+
+    const cvcRegex = /^\d{3}$/;
+    if (!cvcRegex.test(cvc)) {
+      alert('Veuillez entrer un CVC valide (3 chiffres).');
+      return false;
+    }
+
+    return true;
+  }
+
+  // Ajoute un écouteur d'événements au bouton de fermeture
+  document.getElementById('closeButton').addEventListener('click', function() {
+    document.getElementById('ahmed').style.display = 'none';
+  });
+
+  // Ajoute un écouteur d'événements au bouton de paiement
+ 
+
+
+
+  const paymentMessage = document.getElementById('paymentMessage');
+
+// Ajoutez une fonction pour mettre à jour le message
+function updatePaymentMessage(message) {
+  paymentMessage.textContent = message;
+}
+
+// Maintenant, vous pouvez appeler cette fonction avec le message approprié où vous en avez besoin.
+// Par exemple, dans la fonction d'événement de clic pour le bouton de paiement :
+document.getElementById('payButton').addEventListener('click', function() {
+  if (validateForm()) {
+    updatePaymentMessage('Payment successful!'); // Mettez ici le message que vous souhaitez afficher après un paiement réussi.
+    alert('Order successful');
+    setTimeout(function() {
+      document.getElementById('ahmed').style.display = 'none';
+    }, 2000);
+    
+  } else {
+    updatePaymentMessage('Payment failed. Please check your details.'); // Mettez ici le message que vous souhaitez afficher si le paiement échoue.
+  }
+});
+</script>
+
+<style>
+  .close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+  }
+  .message {
+  font-size: 14px;
+  color: #555;
+  margin-top: 10px;
+}
+.btn-container {
+  position: relative;
+}
+
+.btn-container .message {
+  position: absolute;
+  top: 100%;
+  left: 0;
+}
+</style>
+
+
+
+
+
+    <script src = "{% static 'sasa.js' %}"></script>
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+{% endblock %}

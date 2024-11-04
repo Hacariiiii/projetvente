@@ -1,0 +1,258 @@
+
+{% extends 'gabarit.html' %}
+
+{% block title %}  {% endblock %}
+
+
+
+{% block content %}  
+
+{% load static %}
+<link rel="stylesheet"  href=" {% static 'home.css' %} ">
+
+<body>
+   
+  
+        <div class="main  container d-flex py-6 ">
+
+            <div class="men_text container d-flex py-4 px-5" style="position: relative; right: 90px; le">
+                <h1>Get Fresh<span style=" color:gold;">Food</span><br>in a Easy Way</h1>
+            </div>
+
+           
+
+            <div class="main_image container d-flex py-4" style=" position: relative; left:100 px; top: 50px;" >
+                <img src="{% static 'main_img.png'%}">
+            </div>
+
+        </div>
+        
+        <figure style="position: relative;bottom: 100px; bottom: 500px; left: 20px;">
+            <blockquote class="blockquote ">
+              <p class="mb-0" style="font-family: bold; font-size: 26px; color: rgb(5, 5, 5);"> Simplifiez votre expérience de restauration dès aujourd'hui <br>avec FoodOrder.
+
+              </p>
+            
+            </blockquote>
+            <figcaption class="blockquote-footer" style=" position: relative; left: 400px; font-family: bold; font-size: 18px; color: rgb(220, 175, 15);">
+              "Confort Savoureux" <cite title="Source Title"></cite>
+            </figcaption>
+          </figure>
+         
+          <div class="main_image container d-flex py-4" style=" position: absolute;  height: 1000px; width: 1000px;   top: 350px; transform: rotate(270deg); right: 500px;" >
+            <img  src="{% static 'pipi.png'%}">
+        </div>
+        <div class="main_image container d-flex py-4" style=" position: absolute;  height: 200px; width: 200px;     transform: rotate(270deg); right: 150px; top: 1040px;" >
+            <img  src="{% static 'waw.png'%}">
+        </div>
+       
+       
+        <div class="main_btn">
+            
+            <i class="fa-solid fa-angle-right"></i>
+        </div>
+
+    </section>
+
+
+
+    <!--About-->
+
+    <div class="about" id="About">
+        <div class="about_main">
+
+            <div class="image" style="position: relative ; right: 80px;">
+                <img src="{% static 'Food-Plate.png'%}">
+            </div>
+
+            <div class="about_text">
+                <h1><span>About</span>Us</h1>
+                <h3>Why Choose us?</h3>
+                <p>
+                    Welcome to OrderyFood, your ultimate destination for convenient, fresh, and healthy meal solutions. At FreshFood, we believe that everyone deserves access to delicious, nutritious food that fits seamlessly into their busy lifestyles.
+                </p>
+            </div>
+
+        </div>
+
+        <a href="{% url 'au' %}" class="about_btn rounded-3">Order Now</a>
+
+    </div>
+
+    <!--Gallary-->
+
+    <div class="gallary" id="Gallary">
+        <h1>Our<span>Gallary</span></h1>
+
+        <div class="gallary_image_box">
+            <div class="gallary_image">
+                <img src=" {% static 'gallary_1.jpg'%}">
+
+                <h3>Food</h3>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Commodi sint eveniet laboriosam 
+                </p>
+                <a href="#" class="gallary_btn">Order Now</a>
+            </div>
+
+            <div class="gallary_image">
+                <img src=" {% static 'gallary_2.jpg'%}">
+
+                <h3>Food</h3>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Commodi sint eveniet laboriosam 
+                </p>
+                <a href="#" class="gallary_btn">Order Now</a>
+            </div>
+
+            <div class="gallary_image">
+                <img src=" {% static 'gallary_3.jpg'%}">
+
+                <h3>Food</h3>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Commodi sint eveniet laboriosam 
+                </p>
+                <a href="#" class="gallary_btn">Order Now</a>
+            </div>
+
+            <div class="gallary_image">
+                <img src=" {% static 'gallary_4.jpg'%}">
+
+                <h3>Food</h3>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Commodi sint eveniet laboriosam 
+                </p>
+                <a href="#" class="gallary_btn">Order Now</a>
+            </div>
+
+            <div class="gallary_image">
+                <img src=" {% static 'gallary_5.jpg'%}">
+
+                <h3>Food</h3>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Commodi sint eveniet laboriosam 
+                </p>
+                <a href="#" class="gallary_btn">Order Now</a>
+            </div>
+
+            <div class="gallary_image">
+                <img src="{% static 'gallary_6.jpg'%}">
+
+                <h3>Food</h3>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Commodi sint eveniet laboriosam 
+                </p>
+                <a href="#" class="gallary_btn">Order Now</a>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!--Team-->
+
+    <div class="team">
+        <h1>Our<span>Team</span></h1>
+
+        <div class="team_box">
+            <div class="profile">
+                <img src="{% static '88.jpg'%}">
+
+                <div class="info">
+                    <h2 class="name">TAQI <br> Abderrahim</h2>
+                    <p class="bio">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+
+                    <div class="team_icon">
+                        <i class="fa-brands fa-facebook-f"></i>
+                        <i class="fa-brands fa-twitter"></i>
+                        <i class="fa-brands fa-instagram"></i>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="profile">
+                <img src="{% static '00.jpg'%}">
+
+                <div class="info">
+                    <h2 class="name">El haoussi Mouad</h2>
+                    <p class="bio">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+
+                    <div class="team_icon">
+                        <i class="fa-brands fa-facebook-f"></i>
+                        <i class="fa-brands fa-twitter"></i>
+                        <i class="fa-brands fa-instagram"></i>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="profile">
+                <img src="{% static '99.jpg'%}">
+
+                <div class="info">
+                    <h2 class="name">Salahedine benmarouf</h2>
+                    <p class="bio">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+
+                    <div class="team_icon">
+                        <i class="fa-brands fa-facebook-f"></i>
+                        <i class="fa-brands fa-twitter"></i>
+                        <i class="fa-brands fa-instagram"></i>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!--Footer-->
+
+    <footer>
+        <div class="footer_main">
+
+            <div class="footer_tag">
+                <h2>Location</h2>
+                <p>casablanca</p>
+                <p>Mohammedia</p>
+                <p>rabat</p>
+            </div>
+
+            <div class="footer_tag">
+                <h2>Contact</h2>
+                <p>+212 625434835</p>
+                <p>+212 67639535</p>
+                <p>taqiabderrahim@gmail.com</p>
+                <p>mouad@gmail.com</p>
+            </div>
+
+            <div class="footer_tag">
+                <h2>Our Service</h2>
+                <p>Fast Delivery</p>
+                <p>Easy Payments</p>
+                <p>24 x 7 Service</p>
+            </div>
+
+        </div>
+
+    </footer>
+
+
+
+    
+</body>
+
+
+
+
+
+
+
+{% endblock %}
